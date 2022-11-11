@@ -1,0 +1,50 @@
+<form>
+    <h1>Atualizando um novo livro</h1>
+  
+    <mat-form-field class="form">
+      <mat-label>Titulo</mat-label>
+      <input
+        matInput
+        [(ngModel)]="livro.titulo"
+        type="text"
+        name="titulo"
+        placeholder="Ex. Computação"
+      />
+    </mat-form-field>
+    <mat-form-field class="form">
+      <mat-label>Nome Autor</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="livro.nome_autor"
+        type="text"
+        name="nome_autor"
+        placeholder="Ex. livros de computação"
+      ></textarea>
+    </mat-form-field>
+  
+    <mat-form-field class="form">
+      <mat-label>Texto</mat-label>
+      <textarea
+        matInput
+        [(ngModel)]="livro.texto"
+        type="text"
+        name="nome_autor"
+        placeholder="Ex. livros de computação"
+      ></textarea>
+    </mat-form-field>
+    <div class="buttons">
+      <button (click)="update()"
+        
+        class="mat-elevation-z8"
+        mat-stroked-button
+        color="primary"
+      >
+        Atualizar
+      </button>
+  
+      <button (click)="cancelar()" class="mat-elevation-z8" mat-stroked-button color="warn">
+        Cancelar
+      </button>
+    </div>
+  </form>
+  

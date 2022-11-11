@@ -28,6 +28,10 @@ export class LivroDeleteComponent implements OnInit {
     this.findById();
   }
 
+  cancelar():void{
+    this.router.navigate(['categorias'])
+    }
+
   findById(): void {
     this.service.findByiDlivro(this.livro.id!).subscribe((resposta) => {
       this.livro.titulo = resposta.titulo;

@@ -20,12 +20,13 @@ import { CategoriaCreateComponent } from "./components/views/categoria/categoria
 import { CategoriaDeleteComponent } from "./components/views/categoria/categoria-delete/categoria-delete.component";
 import { LivroReadAllComponent } from "./components/views/livro/livro-read-all/livro-read-all.component";
 import { LivroDeleteComponent } from "./components/views/livro/livro-delete/livro-delete.component";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { CategoriaUpdateComponent } from "./components/views/categoria/categoria-update/categoria-update.component";
 import { LivroCriarComponent } from './components/views/livro/livro-criar/livro-criar.component';
+import { LivroUpdateComponent } from './components/views/livro/livro-update/livro-update.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { LivroCriarComponent } from './components/views/livro/livro-criar/livro-
     LivroReadAllComponent,
     LivroDeleteComponent,
     LivroCriarComponent,
+    LivroUpdateComponent,
     
   ],
   imports: [
@@ -59,6 +61,7 @@ import { LivroCriarComponent } from './components/views/livro/livro-criar/livro-
     MatInputModule,
     MatFormFieldModule,
     MatSnackBarModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
