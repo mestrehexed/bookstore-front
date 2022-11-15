@@ -24,8 +24,8 @@
       <ng-container matColumnDef="livros">
         <th mat-header-cell *matHeaderCellDef>Ler Livro</th>
         <td mat-cell *matCellDef="let row">
-          <a class="livros" >
-            <i class="material-icons">book</i>
+          <a class="livros" routerLink="{{row.id}}/read/" >
+            <i class="material-icons" >book</i>
           </a>
         </td>
       </ng-container>
@@ -44,9 +44,15 @@
           </a>
         </td>
       </ng-container>
-
+     
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    
+  </div>
+  <div  class="buttonxd">
+    <button (click)="navegarParaCategoriaCreate()" class="mat-elevation-z8" mat-stroked-button color="primary">
+      Voltar
+    </button>
   </div>
 </div>

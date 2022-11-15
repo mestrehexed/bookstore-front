@@ -24,18 +24,23 @@ export class LivroReadAllComponent implements OnInit {
   }
 
   navegarParalivroCreate(): void{
-    this.router.navigate([`categorias/:id_cat/livros/create`])
+    this.router.navigate([`categorias/${this.id_cat}/livros/create`])
     
     }
 
   findAll(): void {
     this.service.findAllByCategoria(this.id_cat).subscribe((resposta) => {
       this.livros = resposta;
-      console.log(resposta);
+      
     });
 
 
   }
+
+  navegarParaCategoriaCreate(){
+    this.router.navigate(["categorias"])
+    
+    }
 
 
 

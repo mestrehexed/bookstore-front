@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Observable } from "rxjs";
 import { Livro } from "../livro.model";
 import { LivroService } from "../livro.service";
 
@@ -35,7 +34,8 @@ export class LivroCriarComponent implements OnInit {
   create(): void {
     this.service.create(this.livro, this.id_cat).subscribe((resposta) => {
       this.router.navigate([`categorias/${this.id_cat}/livros`]);
-      console.log(resposta);
     });
   }
+
+  
 }
