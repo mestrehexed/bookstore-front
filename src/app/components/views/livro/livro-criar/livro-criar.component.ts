@@ -33,8 +33,18 @@ export class LivroCriarComponent implements OnInit {
 
   create(): void {
     this.service.create(this.livro, this.id_cat).subscribe((resposta) => {
-      this.router.navigate([`categorias/${this.id_cat}/livros`]);
-    });
+      this.router.navigate([`categorias/${this.id_cat}/livros`])
+      this.service.mensagem('Livro Criado Com Sucesso!');
+    }
+    , err => {
+
+        for(let i=0; i<err.error.errors.length; i++){
+          this.service.mensagem(err.error.errors[i].message)
+        }
+        
+      
+    })
+   
   }
 
   

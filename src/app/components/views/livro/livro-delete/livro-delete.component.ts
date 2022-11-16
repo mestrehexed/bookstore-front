@@ -17,6 +17,8 @@ export class LivroDeleteComponent implements OnInit {
     texto: "",
   };
 
+  id_cat: String = "";
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -24,12 +26,13 @@ export class LivroDeleteComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.id_cat = this.route.snapshot.paramMap.get("id_cat")!;
     this.livro.id = this.route.snapshot.paramMap.get("id")!;
     this.findById();
   }
 
   cancelar():void{
-    this.router.navigate(['categorias'])
+    this.router.navigate([`categorias/${this.id_cat}/livros`]);
     }
 
   findById(): void {
@@ -42,8 +45,8 @@ export class LivroDeleteComponent implements OnInit {
   delete(): void {
     this.service.delete(this.livro.id!).subscribe(
       (reposta) => {
-        this.router.navigate(["categorias"]);
-        this.service.mensagem("Livro Deletada Com Sucesso!");
+        this.router.navigate([`categorias/${this.id_cat}/livros`]);
+        this.service.mensagem("Livro Deletado Com Sucesso!");
       },
       (err) => {
         this.service.mensagem(err.error.error);

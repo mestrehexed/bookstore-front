@@ -16,6 +16,8 @@ export class LivroUpdateComponent implements OnInit {
     texto: "",
   };
 
+  id_cat: String = "";
+
   constructor(
     private service: LivroService,
     private route: ActivatedRoute,
@@ -23,6 +25,7 @@ export class LivroUpdateComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.id_cat =  this.route.snapshot.paramMap.get("id_cat")!;
     this.livro.id = this.route.snapshot.paramMap.get("id")!;
     this.findById();
   }
@@ -37,11 +40,17 @@ export class LivroUpdateComponent implements OnInit {
 
   update(): void {
     this.service.update(this.livro).subscribe((resposta) => {
-      this.router.navigate(["categorias"]);
-    });
+      this.router.navigate([`categorias/${this.id_cat}/livros`]);
+      this.service.mensagem("Livro Atualizado Com Sucesso!");
+    },
+    (err) => {
+      this.service.mensagem(err.error.error);
+    }
+  );
+    
   }
 
   cancelar():void{
-    this.router.navigate(["categorias"]);
+    this.router.navigate([`categorias/${this.id_cat}/livros`]);
   }
 }

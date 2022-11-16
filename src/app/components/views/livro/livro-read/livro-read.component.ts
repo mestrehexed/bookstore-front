@@ -42,7 +42,7 @@ export class LivroReadComponent implements OnInit {
  
 
   cancelar():void{
-    this.router.navigate(["categorias"]);
+    this.router.navigate([`categorias/${this.id_cat}/livros`]);
   }
 
 
