@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl:'https://myprojectudemy.herokuapp.com'
+  baseUrl:'https://magical-platypus-64d61d.netlify.app'
 
 };
 
